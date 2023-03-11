@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.anmpweek2kpc.MainFragment"
+        android:label="Main Screen"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/actionGameFragment"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.anmpweek2kpc.GameFragment"
+        android:label="Game Screen"
+        tools:layout="@layout/fragment_game">
+        <argument
+            android:name="player_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionResultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.anmpweek2kpc.ResultFragment"
+        android:label="Result Screen"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/actionMainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="player_score"
+            app:argType="integer" />
+    </fragment>
+</navigation>
